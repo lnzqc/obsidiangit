@@ -1,0 +1,10 @@
+{
+  "accentColor": "",
+  "cssTheme": "Blue Topaz",
+  "theme": "obsidian",
+  "enabledCssSnippets": [
+    "fixTablekuan",
+    "fixTableHeader",
+    "papers-matrix"
+  ]
+}

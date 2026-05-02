@@ -1,0 +1,127 @@
+/*溢出内容不换行*/
+
+.tablenowrap.markdown-source-view div.cm-embed-block.cm-table-widget > div > table {width: max-content !important;}/*实时预览模式*/
+.markdown-reading-view .tablenowrap.markdown-preview-view.markdown-rendered table {width: max-content !important;}/*阅读模式*/
+
+/*----------------------------------------------------------------------------------------------------*/
+
+/*隐藏属性*/
+
+.markdown-preview-view.hideproperties .metadata-container {display: none;}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.fixTableHeader .theme-dark
+{
+  --table-row-alt-background: #101010;
+  --table-row-background-hover: DimGray;
+}
+
+.fixTableHeader .theme-light
+{
+  --table-row-alt-background: WhiteSmoke;
+  --table-row-background-hover: LightYellow;
+}
+
+/* == 锁定表首列 == */
+
+/* 锁定表首列格式预处理 */
+/*.table-wrapper .table-editor div:has(> table) .markdown-source-view.mod-cm6 .cm-table-widget*/
+.fixTableHeader :is(
+.markdown-reading-view table
+){
+  /*max-width:100%; 表格显示的最大宽度。*/
+}
+
+
+/* 锁定表头首格。z-index需比表头和表体首列的z-index更高 */
+.fixTableHeader :is(
+.markdown-reading-view table thead tr > th:nth-child(1)
+){
+  position: sticky !important;
+  left: 0;
+  top: 0;
+  z-index: 9;
+}
+
+/* 锁定表体首列。z-index需比表头首格的z-index低 */
+.fixTableHeader :is(
+.markdown-reading-view table tbody tr > td:nth-child(1)
+){
+  position: sticky !important;
+  left: 0;
+  z-index: 7;
+}
+
+/* ==== 锁定表头 ==== */
+
+/* 锁定表头。z-index需比表头首格的z-index低 */
+.fixTableHeader :is(
+.markdown-reading-view table thead tr 
+){
+  position: sticky !important;
+  top: 0;
+  z-index: 8;
+}
+
+/* 锁定表头格式预处理 */
+
+.fixTableHeader :is(
+.markdown-reading-view table
+){
+  max-height: 950px; /*表格显示的最大高度。务必根据自己的显示器高度，调节此值*/
+  overflow-y: auto;
+}
+
+.wideScreen :is(
+.markdown-reading-view table
+){
+  max-height: 950px; /*表格显示的最大高度。务必根据自己的显示器高度，调节此值*/
+  overflow-y: auto;
+}
+
+.narrowScreen :is(
+.markdown-reading-view table
+){
+  max-height: 600px; /*表格显示的最大高度。务必根据自己的显示器高度，调节此值*/
+  overflow-y: auto;
+}
+
+.fixTableHeader :is(
+.markdown-reading-view table
+){
+  display: block;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+/*表格页面*/
+
+body .tablepage {--file-line-width: 100%;} /*不留页边距*/
+
+.tablepage.markdown-preview-view table {width: 100%;} /*预览表格宽度占满*/
+
+/*----------------------------------------------------------------------------------------------------*/
+
+/*表头颜色*/
+body .tablepage {
+  --table-header-color: var(--text-on-accent);
+  --table-header-background: #354e6b;  /* 可自定表头背景色 */
+  --table-header-background-hover: #354e6b;
+  --table-row-alt-background-hover: var(--table-row-background-hover);
+  --table-drag-handle-background: var(--background-primary);
+  --table-drag-handle-color: var(--table-drag-handle-background);
+}
+
+/* 表头悬停时背景色 */
+.tablepage th:hover {
+  background-color: #203744; /* 悬停时的背景色 */
+}
+
+/* 取消表行悬停高亮背景色 */
+.tablepage :is(
+table tbody tr:hover,
+table tbody tr:hover td:nth-child(1)
+){
+  background-color:var(--table-row-background-hover) !important;
+}
