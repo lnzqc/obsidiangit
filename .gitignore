@@ -1,2 +1,64 @@
+# ==============================================
+# 1. Obsidian 核心忽略（必加，防冲突+瘦身）
+# ==============================================
+# 工作区状态（打开的标签、面板布局，每台设备不同，必忽略）
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
+.obsidian/app.json
+
+# 缓存/索引（可重建，体积大、频繁变）
+.obsidian/cache/
+.obsidian/search.json
+.obsidian/tags.json
+.obsidian/starred.json
+.obsidian/updates.json
+
+# 插件相关（保留插件列表+manifest，忽略缓存/数据/安装包）
+.obsidian/plugins/*/cache/
+.obsidian/plugins/*/.cache/
+.obsidian/plugins/*/node_modules/
+.obsidian/plugins/*/dist/
+.obsidian/plugins/*/*.log
+.obsidian/plugins/*/*.tmp
+# 保留插件清单与核心配置（不删这两行）
+!.obsidian/community-plugins.json
+!.obsidian/plugins/**/manifest.json
+
+# 临时/回收站
+.trash/
+.obsidian/trash/
+*.tmp
+*.swp
+*.swo
+*~
+
+# ==============================================
+# 2. 系统/编辑器垃圾（跨平台通用）
+# ==============================================
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# 编辑器/IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# ==============================================
+# 3. 常用插件专属忽略（按需加）
+# ==============================================
+# Dataview 缓存
+.dataview/
+# Excalidraw 临时/缓存
+.excalidraw/
+# Templater 临时
+.templater.cache/
+# Git 插件自身缓存
+.obsidian/git/
